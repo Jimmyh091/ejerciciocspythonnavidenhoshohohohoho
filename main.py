@@ -28,7 +28,29 @@ def sorteo_navidad(nombres, premios):
 
     return resultados
 
+
+def cuenta_regresiva(numero):
+
+    it = numero
+
+    while(it > 0):
+
+        if it % 3 == 0 and it % 5 == 0:
+            print(f"{it} = 😰")
+        elif it % 3 == 0:
+            print(f"{it} = 😂")
+        elif it % 5 == 0:
+            print(f"{it} = 🤣")
+        else:
+            print(f"{it} = 🗿")
+
+        it -= 1
+
+
+
+
 imprimir_arbol(50)
 print(filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"]))
 print(contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3]))
 print(sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"]))
+cuenta_regresiva(50)
