@@ -47,6 +47,15 @@ def cuenta_regresiva(numero):
         it -= 1
 
 
+def sec_natal(lista):
+
+    resultado = []
+
+    for it in range(0, len(lista)):
+        if lista[it][1] >= 18:
+            resultado.append(lista[it][0])
+
+    return resultado.sort()
 
 
 imprimir_arbol(50)
@@ -54,3 +63,7 @@ print(filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"]))
 print(contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3]))
 print(sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"]))
 cuenta_regresiva(50)
+listststst = sec_natal([["Jaime", 19], ["Gaspar", 103], ["Carlos", 14]])
+
+for it in listststst:
+    print(it)
