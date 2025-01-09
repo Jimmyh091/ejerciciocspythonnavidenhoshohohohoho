@@ -55,7 +55,9 @@ def sec_natal(lista):
         if lista[it][1] >= 18:
             resultado.append(lista[it][0])
 
-    return resultado.sort()
+    resultado.sort()
+    print(resultado)
+    return resultado
 
 
 imprimir_arbol(50)
@@ -63,7 +65,7 @@ print(filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"]))
 print(contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3]))
 print(sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"]))
 cuenta_regresiva(50)
-listststst = sec_natal([["Jaime", 19], ["Gaspar", 103], ["Carlos", 14]])
+listststst = sec_natal([["Jaime", 19], ["Gaspar", 103], ["Carlos", 14], ["Fran", 23], ["David", 29], ["Nacho", 17], ["Nahuel", 24]])
 
 for it in listststst:
     print(it)
