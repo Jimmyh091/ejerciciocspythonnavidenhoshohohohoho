@@ -58,10 +58,11 @@ def sec_natal(lista):
 
 
 def comprobar_filas(tablero):
-    for fila in tablero:
 
-        for it in range(1, len(fila)):
-            if fila[it][0] == fila[it - 1][0]:
+    for it in range(0, len(tablero)):
+        for it2 in range(1, len(tablero[0])):
+
+            if tablero[it][it2][0] == tablero[it][it2 - 1][0]:
                 return False
 
     return True
@@ -69,7 +70,6 @@ def comprobar_filas(tablero):
 
 def comprobar_columnas(tablero):
     for it in range(0, len(tablero)):
-
         for it2 in range(1, len(tablero)):
             if tablero[it][it2][0] == tablero[it][it2 - 1][0]:  # creo que it2 tiene que estar donde it1
                 return False
@@ -152,7 +152,6 @@ def detransformar_sudoku(tablero):
 
 def funcion_backtracking(tablero, espacios):
     if comprobar_filas(tablero) and comprobar_columnas(tablero) and comprobar_cuadros(tablero):
-        print("Resuelto")
         return tablero
     else:
 
@@ -160,12 +159,12 @@ def funcion_backtracking(tablero, espacios):
 
         while True:
 
-            if tablero[espacios[it][0]][espacios[it][1]] == 9:
-                tablero[espacios[it][0]][espacios[it][1]] = 1
+            if tablero[espacios[it][0]][espacios[it][1]][0] == 9:
+                tablero[espacios[it][0]][espacios[it][1]][0] = 1
             else:
-                tablero[espacios[it][0]][espacios[it][1]] += 1
+                tablero[espacios[it][0]][espacios[it][1]][0] += 1
 
-            if tablero[espacios[it][0]][espacios[it][1]] == 1:
+            if tablero[espacios[it][0]][espacios[it][1]][0] == 1:
                 it -= 1
             else:
                 break
@@ -180,7 +179,7 @@ def resolver_sudoku(tablero):
 
     espacios = coger_espacios(tableroCopia)
 
-    resultado = funcion_backtracking(tablero, espacios)
+    resultado = funcion_backtracking(tableroCopia, espacios)
 
     print(resultado)
 
@@ -195,14 +194,14 @@ print(sec_natal(
 
 resolver_sudoku(
     [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 6, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 9],
+        [0, 0, 0, 0, 0, 0, 4, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 8],
+        [0, 0, 3, 0, 0, 0, 0, 0, 0],
+        [7, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 5, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
     ]
 )
