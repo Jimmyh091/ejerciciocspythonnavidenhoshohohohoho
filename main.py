@@ -194,7 +194,7 @@ cuenta_regresiva(50)
 print(sec_natal(
     [["Jaime", 19], ["Gaspar", 103], ["Carlos", 12], ["Fran", 23], ["David", 29], ["Nacho", 17], ["Nahuel", 24]]))
 
-# va pero si no tiene que hacer la recursividad mas de 1000 veces (exactamente)
+# va pero si no tiene que hacer la recursividad mas de 1000 veces (exactas)
 print(
 resolver_sudoku(
 
