@@ -153,6 +153,7 @@ def detransformar_sudoku(tablero):
 def funcion_backtracking(tablero, espacios):
     if comprobar_filas(tablero) and comprobar_columnas(tablero) and comprobar_cuadros(tablero):
         print("Resuelto")
+        return tablero
     else:
 
         it = len(espacios) - 1
@@ -175,7 +176,13 @@ def funcion_backtracking(tablero, espacios):
 def resolver_sudoku(tablero):
     print("Resolviendo sudoku...")
 
-    tableroCopia = tablero.copy()
+    tableroCopia = trasformar_tablero(tablero)
+
+    espacios = coger_espacios(tableroCopia)
+
+    resultado = funcion_backtracking(tablero, espacios)
+
+    print(resultado)
 
 
 imprimir_arbol(50)
