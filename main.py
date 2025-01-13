@@ -146,7 +146,7 @@ def detransformar_tablero(tablero):
 
     for it in range(0, len(tablero)):
         for it2 in range(0, len(tablero[0])):
-            tablero_aux = tablero[it][it2][0]
+            tablero_aux[it][it2] = tablero[it][it2][0]
 
     return tablero_aux
 
@@ -170,7 +170,7 @@ def funcion_backtracking(tablero, espacios):
             else:
                 break
 
-        funcion_backtracking(tablero, espacios)
+        return funcion_backtracking(tablero, espacios)
 
 
 def resolver_sudoku(tablero):
@@ -180,9 +180,10 @@ def resolver_sudoku(tablero):
 
     espacios = coger_espacios(tableroCopia)
 
-    resultado = funcion_backtracking(tableroCopia, espacios)
+    resultado = detransformar_tablero(funcion_backtracking(tableroCopia, espacios))
 
-    print(resultado)
+    for fila in resultado:
+        print(fila)
 
 
 imprimir_arbol(50)
@@ -193,38 +194,26 @@ cuenta_regresiva(50)
 print(sec_natal(
     [["Jaime", 19], ["Gaspar", 103], ["Carlos", 12], ["Fran", 23], ["David", 29], ["Nacho", 17], ["Nahuel", 24]]))
 
+# va pero si no tiene que hacer la recursividad mas de 1000 veces (exactamente)
 print(
 resolver_sudoku(
 
         [
             [5, 3, 4, 6, 7, 8, 9, 1, 2],
             [6, 7, 2, 1, 9, 5, 3, 4, 8],
-            [1, 9, 8, 3, 0, 2, 5, 6, 7],
-            [8, 5, 9, 7, 6, 1, 4, 2, 3],
+            [1, 9, 0, 3, 0, 2, 5, 6, 7],
+            [8, 0, 9, 7, 6, 1, 4, 2, 3],
             [4, 2, 6, 8, 5, 3, 7, 9, 1],
             [7, 1, 3, 9, 2, 4, 8, 5, 6],
-            [9, 6, 1, 5, 3, 7, 2, 8, 4],
-            [2, 8, 7, 4, 1, 9, 6, 3, 5],
-            [3, 4, 5, 2, 8, 6, 1, 7, 9]
+            [9, 6, 1, 5, 3, 7, 2, 0, 4],
+            [2, 8, 7, 4, 0, 9, 6, 3, 5],
+            [3, 4, 5, 2, 8, 6, 1, 7, 0]
         ]
 ))
 
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
-#         [6, 7, 2, 1, 9, 5, 3, 4, 8],
-#         [1, 9, 8, 3, 4, 2, 5, 6, 7],
-#         [8, 5, 9, 7, 6, 1, 4, 2, 3],
-#         [4, 2, 6, 8, 5, 3, 7, 9, 1],
-#         [7, 1, 3, 9, 2, 4, 8, 5, 6],
-#         [9, 6, 1, 5, 3, 7, 2, 8, 4],
-#         [2, 8, 7, 4, 1, 9, 6, 3, 5],
-#         [3, 4, 5, 2, 8, 6, 1, 7, 9],
-#     ]
-#
-# otra prueba
-# [
-#         [[5, True], 3, 4, 6, 7, 8, 9, 1, 2],
 #         [6, 7, 2, 1, 9, 5, 3, 4, 8],
 #         [1, 9, 8, 3, 4, 2, 5, 6, 7],
 #         [8, 5, 9, 7, 6, 1, 4, 2, 3],
