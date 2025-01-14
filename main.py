@@ -283,7 +283,7 @@ resolver_sudoku(
         ]
 )
 '''
-print(resolver_n_reinas(5))
+print(resolver_n_reinas(50))
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
