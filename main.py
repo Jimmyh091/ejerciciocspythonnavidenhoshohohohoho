@@ -196,7 +196,7 @@ def colocar_diagonal_izqsup_derinf(tablero, x, y):
         yaux -= 1
 
     while xaux < len(tablero) and yaux < len(tablero):
-        tablero[xaux][yaux] = False
+        tablero[xaux][yaux] = 1
 
         xaux += 1
         yaux += 1
@@ -211,7 +211,7 @@ def colocar_diagonal_dersup_izqinf(tablero, x, y):
         yaux -= 1
 
     while xaux >= 0 and yaux < len(tablero):
-        tablero[xaux][yaux] = False
+        tablero[xaux][yaux] = 1
 
         xaux -= 1
         yaux += 1
@@ -221,12 +221,12 @@ def colocar_reina(tablero, x, y):
 
     # comprobar vertical y horizontal
     for it in range(0, len(tablero)):
-        for it2 in range(0, len(tablero[0])):
+        for it2 in range(0, len(tablero)):
 
             if it == x:
-                tablero[it][it2] = False
+                tablero[it][it2] = 1
             elif it2 == y:
-                tablero[it][it2] = False
+                tablero[it][it2] = 1
 
     colocar_diagonal_izqsup_derinf(tablero, x, y)
     colocar_diagonal_dersup_izqinf(tablero, x, y)
@@ -243,16 +243,20 @@ def resolver_n_reinas(filas):
         fila = []
 
         for it2 in range(0, filas + 1):
-            fila.append(True)
+            fila.append(0)
 
         tablero.append(fila)
 
     for it in range(0, len(tablero)):
-        for it2 in range(0, len(tablero[0])):
+        for it2 in range(0, len(tablero)):
 
-            if tablero[it][it2]:
+            if tablero[it][it2] == 0:
                 posiciones.append([it, it2])
                 colocar_reina(tablero, it, it2)
+                tablero[it][it2] = "😰"
+
+    for it in tablero:
+        print(it)
 
     return posiciones
 
@@ -267,7 +271,6 @@ print(sec_natal(
 
 # va pero si no tiene que hacer la recursividad mas de 1000 veces (exactas)
 sys.setrecursionlimit(999999999)
-'''
 resolver_sudoku(
 
         [
@@ -282,8 +285,7 @@ resolver_sudoku(
             [3, 4, 5, 2, 8, 0, 1, 7, 0]
         ]
 )
-'''
-print(resolver_n_reinas(50))
+print(resolver_n_reinas(500))
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
