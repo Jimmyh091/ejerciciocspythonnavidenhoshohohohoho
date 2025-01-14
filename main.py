@@ -175,7 +175,7 @@ def funcion_backtracking(tablero, espacios):
 
 
 def resolver_sudoku(tablero):
-    print("Resolviendo sudoku...")
+    print("Resolviendo sudoku... (si hay varios ceros tardará unos minutos)")
 
     tableroCopia = transformar_tablero(tablero)
 
@@ -185,6 +185,37 @@ def resolver_sudoku(tablero):
 
     for fila in resultado:
         print(fila)
+
+
+def colocar_reina(tablero, x, y):
+
+    for it in range(0, len(tablero)):
+        for it2 in range(0, len(tablero[0])):
+
+
+            if it == x:
+                tablero[it][it2] = False
+            elif it2 == y:
+
+def resolver_n_reinas(filas):
+
+    tablero = []
+    posiciones = []
+
+    for it in range(0, filas + 1):
+
+        fila = []
+
+        for it2 in range(0, filas + 1):
+            fila.append(True)
+
+        tablero.append(fila)
+
+    for it in range(0, len(tablero)):
+        for it2 in range(0, len(tablero[0])):
+
+            if tablero[it][it2] == True:
+                colocar_reina(tablero, it, it2)
 
 
 imprimir_arbol(50)
