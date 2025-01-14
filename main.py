@@ -187,15 +187,49 @@ def resolver_sudoku(tablero):
         print(fila)
 
 
+def colocar_diagonal_izqsup_derinf(tablero, x, y):
+    xaux = x
+    yaux = y
+
+    while xaux >= 0 and yaux >= 0:
+        xaux -= 1
+        yaux -= 1
+
+    while xaux < len(tablero) and yaux < len(tablero):
+        tablero[xaux][yaux] = False
+
+        xaux += 1
+        yaux += 1
+
+
+def colocar_diagonal_dersup_izqinf(tablero, x, y):
+    xaux = x
+    yaux = y
+
+    while xaux < len(tablero) and yaux > 0:
+        xaux += 1
+        yaux -= 1
+
+    while xaux > 0 and yaux < len(tablero):
+        tablero[xaux][yaux] = False
+
+        xaux -= 1
+        yaux += 1
+
+
 def colocar_reina(tablero, x, y):
 
+    # comprobar vertical y horizontal
     for it in range(0, len(tablero)):
         for it2 in range(0, len(tablero[0])):
-
 
             if it == x:
                 tablero[it][it2] = False
             elif it2 == y:
+                tablero[it][it2] = False
+
+    colocar_diagonal_izqsup_derinf(tablero, x, y)
+    colocar_diagonal_dersup_izqinf(tablero, x, y)
 
 def resolver_n_reinas(filas):
 
@@ -214,7 +248,7 @@ def resolver_n_reinas(filas):
     for it in range(0, len(tablero)):
         for it2 in range(0, len(tablero[0])):
 
-            if tablero[it][it2] == True:
+            if tablero[it][it2]:
                 colocar_reina(tablero, it, it2)
 
 
@@ -228,7 +262,7 @@ print(sec_natal(
 
 # va pero si no tiene que hacer la recursividad mas de 1000 veces (exactas)
 sys.setrecursionlimit(999999999)
-
+'''
 resolver_sudoku(
 
         [
@@ -243,7 +277,8 @@ resolver_sudoku(
             [3, 4, 5, 2, 8, 0, 1, 7, 0]
         ]
 )
-
+'''
+resolver_n_reinas(5)
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
