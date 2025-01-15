@@ -2,22 +2,50 @@ import random
 import sys
 
 
+def espaciar():
+    for it in range(0, 3):
+        print("")
+
+
 def imprimir_arbol(filas):
+    print(f"\n\nEjercicio 1: Arbol de {filas} filas\n")
+
     for it in range(1, filas + 1):
         print(" " * (filas - it) + "*" * it + "*" * (it - 1))
 
-    # num = filas / 2 if filas % 2 == 0 else (filas - 1) / 2
     num = filas - 2
 
     print(" " * int(num) + "|||")
 
+    espaciar()
+
 
 def filtrar_regalos(lista):
-    return [x for x in lista if x[0] == 'R' or x[0] == 'r']
+    print("Ejercicio 2: Filtrar regalos introducidos\n")
+
+    print(f"Regalos: {lista}"
+          .replace("[", "").replace("]", "").replace("'", ""))
+
+    regalos_filtrados = [x for x in lista if x[0] == 'R' or x[0] == 'r']
+
+    print(f"Regalos que empiecen con R: {lista}"
+          .replace("[", "").replace("]", "").replace("'", ""))
+
+    espaciar()
 
 
 def contar_bolas(lista):
-    return len([x for x in lista if x >= 5])
+    print("Ejercicio 3: Contar bolas de nieve > 5\n")
+
+    print(f"Tamanho de las bolas: {lista}"
+          .replace("[", "").replace("]", ""))
+
+    bolas_filtradas = len([x for x in lista if x >= 5])
+
+    print(f"Tamanho > 5: {bolas_filtradas}"
+          .replace("[", "").replace("]", ""))
+
+    espaciar()
 
 
 def sorteo_navidad(nombres, premios):
@@ -59,7 +87,6 @@ def sec_natal(lista):
 
 
 def comprobar_filas(tablero):
-
     for it in range(0, len(tablero)):
         for it2 in range(1, len(tablero[0])):
 
@@ -108,7 +135,6 @@ def coger_espacios(tablero):
 
 
 def transformar_tablero(tablero):
-
     tablero_aux = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -218,7 +244,6 @@ def colocar_diagonal_dersup_izqinf(tablero, x, y):
 
 
 def colocar_reina(tablero, x, y):
-
     # comprobar vertical y horizontal
     for it in range(0, len(tablero)):
         for it2 in range(0, len(tablero)):
@@ -231,8 +256,8 @@ def colocar_reina(tablero, x, y):
     colocar_diagonal_izqsup_derinf(tablero, x, y)
     colocar_diagonal_dersup_izqinf(tablero, x, y)
 
-def resolver_n_reinas(filas):
 
+def resolver_n_reinas(filas):
     filas -= 1
 
     tablero = []
@@ -253,7 +278,7 @@ def resolver_n_reinas(filas):
             if tablero[it][it2] == 0:
                 posiciones.append([it, it2])
                 colocar_reina(tablero, it, it2)
-                tablero[it][it2] = "😰"
+                tablero[it][it2] = 8
 
     for it in tablero:
         print(it)
@@ -261,7 +286,7 @@ def resolver_n_reinas(filas):
     return posiciones
 
 
-imprimir_arbol(50)
+imprimir_arbol(6)
 print(filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"]))
 print(contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3]))
 print(sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"]))
@@ -273,19 +298,19 @@ print(sec_natal(
 sys.setrecursionlimit(999999999)
 resolver_sudoku(
 
-        [
-            [5, 3, 4, 6, 7, 8, 9, 1, 2],
-            [6, 7, 2, 1, 9, 5, 3, 4, 8],
-            [1, 9, 8, 3, 4, 2, 5, 6, 7],
-            [8, 5, 9, 7, 6, 1, 4, 2, 3],
-            [4, 2, 6, 8, 5, 0, 0, 9, 1],
-            [7, 1, 3, 9, 2, 0, 8, 5, 6],
-            [9, 6, 1, 5, 3, 0, 2, 8, 4],
-            [2, 8, 7, 4, 1, 0, 6, 3, 5],
-            [3, 4, 5, 2, 8, 0, 1, 7, 0]
-        ]
+    [
+        [5, 3, 4, 6, 7, 8, 9, 1, 2],
+        [6, 7, 2, 1, 9, 5, 3, 4, 8],
+        [1, 9, 8, 3, 4, 2, 5, 6, 7],
+        [8, 5, 9, 7, 6, 1, 4, 2, 3],
+        [4, 2, 6, 8, 5, 3, 7, 9, 1],
+        [7, 1, 3, 9, 2, 4, 8, 5, 6],
+        [9, 6, 1, 5, 3, 7, 2, 8, 4],
+        [2, 8, 7, 4, 1, 9, 6, 3, 5],
+        [3, 4, 5, 2, 8, 6, 1, 7, 9]
+    ]
 )
-print(resolver_n_reinas(500))
+print(resolver_n_reinas(5))
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
