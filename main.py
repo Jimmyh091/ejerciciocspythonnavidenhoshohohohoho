@@ -42,18 +42,18 @@ def contar_bolas(lista):
 
     bolas_filtradas = len([x for x in lista if x >= 5])
 
-    print(f"Tamanho > 5: {bolas_filtradas}"
+    print(f"Cantidad de bolas > 5: {bolas_filtradas}"
           .replace("[", "").replace("]", ""))
 
     espaciar()
 
 
 def sorteo_navidad(nombres, premios):
-    print("Ejercicio 4: Otorgar premios aleatoriamente")
+    print("Ejercicio 4: Otorgar premios aleatoriamente\n")
 
     print(f"Nominados: {nombres}"
           .replace("[", "").replace("]", "").replace("'", ""))
-    print(f"Nominados: {nombres}"
+    print(f"Premios: {premios}\n"
           .replace("[", "").replace("]", "").replace("'", ""))
 
     resultados = []
@@ -61,24 +61,29 @@ def sorteo_navidad(nombres, premios):
     for it in range(0, len(premios) + 1):
         resultados.append("El premio " + random.choice(premios) + " es para " + random.choice(nombres))
 
-    return resultados
+    print(f"Resultados: {resultados}"
+          .replace("[", "").replace("]", "").replace("'", ""))
+
+    espaciar()
 
 
 def cuenta_regresiva(numero):
+    print("Ejercicio 5: Cuenta regresiva y dividendos de 3 y/o 5\n")
+
     it = numero
 
-    while (it > 0):
+    while it > 0:
 
         if it % 3 == 0 and it % 5 == 0:
-            print(f"{it} = 😰")
+            print(f"{it} = 🎁")
         elif it % 3 == 0:
-            print(f"{it} = 😂")
+            print(f"{it} = 🎆")
         elif it % 5 == 0:
-            print(f"{it} = 🤣")
-        else:
-            print(f"{it} = 🗿")
+            print(f"{it} = 🎄")
 
         it -= 1
+
+    espaciar()
 
 
 def sec_natal(lista):
@@ -92,6 +97,8 @@ def sec_natal(lista):
     print(resultado)
     return resultado
 
+
+# Sudoku
 
 def comprobar_filas(tablero):
     for it in range(0, len(tablero)):
@@ -208,17 +215,20 @@ def funcion_backtracking(tablero, espacios):
 
 
 def resolver_sudoku(tablero):
-    print("Resolviendo sudoku... (si hay varios ceros tardará unos minutos)")
 
     tableroCopia = transformar_tablero(tablero)
 
     espacios = coger_espacios(tableroCopia)
+
+    print(f"Ejercicio 6: Sudoku con {len(espacios)} espacios")
 
     resultado = detransformar_tablero(funcion_backtracking(tableroCopia, espacios))
 
     for fila in resultado:
         print(fila)
 
+
+# Colocar Reina
 
 def colocar_diagonal_izqsup_derinf(tablero, x, y):
     xaux = x
