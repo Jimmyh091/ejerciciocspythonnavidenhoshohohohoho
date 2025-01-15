@@ -49,6 +49,13 @@ def contar_bolas(lista):
 
 
 def sorteo_navidad(nombres, premios):
+    print("Ejercicio 4: Otorgar premios aleatoriamente")
+
+    print(f"Nominados: {nombres}"
+          .replace("[", "").replace("]", "").replace("'", ""))
+    print(f"Nominados: {nombres}"
+          .replace("[", "").replace("]", "").replace("'", ""))
+
     resultados = []
 
     for it in range(0, len(premios) + 1):
@@ -287,15 +294,19 @@ def resolver_n_reinas(filas):
 
 
 imprimir_arbol(6)
-print(filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"]))
-print(contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3]))
-print(sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"]))
-cuenta_regresiva(50)
-print(sec_natal(
-    [["Jaime", 19], ["Gaspar", 103], ["Carlos", 12], ["Fran", 23], ["David", 29], ["Nacho", 17], ["Nahuel", 24]]))
 
-# va pero si no tiene que hacer la recursividad mas de 1000 veces (exactas)
-sys.setrecursionlimit(999999999)
+filtrar_regalos(["rafslkd", "skfdjha", "RsRkfdjae", "JKHkjfdase"])
+
+contar_bolas([4, 6, 7, 8, 2, 2, 2, 2, 7, 2, 2, 7, 2, 2, 26, 6, 27, 7823, 3])
+
+sorteo_navidad(["Jiame", "Jefferson", "Jimena", "JoJo"], ["GOTY", "Goya", "galardon de navidad"])
+
+cuenta_regresiva(50)
+
+sec_natal([["Jaime", 19], ["Gaspar", 103], ["Carlos", 12], ["Fran", 23], ["David", 29], ["Nacho", 17], ["Nahuel", 24]])
+
+# Necesario para poder calcular muchos espacios
+# sys.setrecursionlimit(999999999)
 resolver_sudoku(
 
     [
@@ -310,7 +321,7 @@ resolver_sudoku(
         [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ]
 )
-print(resolver_n_reinas(5))
+resolver_n_reinas(5)
 # prueba
 # [
 #         [5, 3, 4, 6, 7, 8, 9, 1, 2],
